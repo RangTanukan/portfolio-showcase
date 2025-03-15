@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+---
+
+<Layout>
+  <h1 class="text-center text-4xl">My Projects</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <ProjectCard title="Project One" description="A cool project" link="#" />
+    <ProjectCard title="Project Two" description="Another cool project" link="#" />
+    <ProjectCard title="Project Three" description="Yet another cool project" link="#" />
+  </div>
+</Layout>
+
