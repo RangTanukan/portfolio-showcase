@@ -1,12 +1,5 @@
 ---
-import { toggleMenu } from "../scripts/menu.ts";
 
-const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Projects", path: "/projects" },
-  { name: "About", path: "/about" },
-  { name: "Contact", path: "/contact" }
-];
 ---
 
 <nav class="flex justify-between items-center p-6 bg-gray-800">
@@ -14,7 +7,12 @@ const navLinks = [
 
   <!-- Desktop Menu -->
   <ul class="hidden md:flex space-x-6">
-    {navLinks.map((link) => (
+    {[
+      { name: "Home", path: "/" },
+      { name: "Projects", path: "/projects" },
+      { name: "About", path: "/about" },
+      { name: "Contact", path: "/contact" },
+    ].map((link) => (
       <li>
         <a href={link.path} class="hover:text-blue-400">{link.name}</a>
       </li>
@@ -27,7 +25,6 @@ const navLinks = [
       id="hamburger"
       class="flex flex-col justify-between items-center space-y-1 w-8 h-8"
       aria-label="Toggle Navigation"
-      onClick={() => toggleMenu()}
     >
       <div class="w-6 h-1 bg-white"></div>
       <div class="w-6 h-1 bg-white"></div>
@@ -36,11 +33,27 @@ const navLinks = [
   </div>
 
   <!-- Mobile Menu -->
-  <ul id="mobile-menu" class="absolute top-16 right-0 w-2/3 bg-gray-800 text-center hidden md:hidden space-y-4 p-6">
-    {navLinks.map((link) => (
+  <ul
+    id="mobile-menu"
+    class="absolute top-16 right-0 w-2/3 bg-gray-800 text-center hidden md:hidden space-y-4 p-6"
+  >
+    {[
+      { name: "Home", path: "/" },
+      { name: "Projects", path: "/projects" },
+      { name: "About", path: "/about" },
+      { name: "Contact", path: "/contact" },
+    ].map((link) => (
       <li>
-        <a href={link.path} class="block text-white hover:text-blue-400">{link.name}</a>
+        <a href={link.path} class="block text-white hover:text-blue-400">
+          {link.name}
+        </a>
       </li>
     ))}
   </ul>
 </nav>
+
+<!-- ✅ This ensures the script runs only in the browser -->
+<script >
+  import { setupMenuToggle } from "../scripts/menu.ts";
+  setupMenuToggle();
+</script>
