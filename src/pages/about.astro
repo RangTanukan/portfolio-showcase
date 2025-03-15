@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+interface Skill {
+  name: string;
+  level: string;
+}
+
+const skills: Skill[] = [
+  { name: "JavaScript", level: "Advanced" },
+  { name: "TypeScript", level: "Intermediate" },
+  { name: "React", level: "Intermediate" },
+  { name: "Node.js", level: "Intermediate" },
+];
+---
+
+<Layout>
+  <h1 class="text-center text-4xl">About Me</h1>
+  <p class="mt-4 text-gray-300">
+    I'm a passionate web developer with a love for creating beautiful, functional, and performant websites.
+  </p>
+
+  <section class="mt-10">
+    <h2 class="text-3xl font-semibold text-center">Skills</h2>
+    <ul class="space-y-4 mt-6">
+      {skills.map(skill => (
+        <li class="bg-gray-700 p-4 rounded-lg shadow-lg">
+          <strong>{skill.name}</strong>: {skill.level}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
